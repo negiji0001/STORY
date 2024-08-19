@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A special web page to celebrate our journey together.">
+    <meta name="keywords" content="romantic, timeline, memories, love, special moments">
+    <meta name="author" content="Your Name">
+    <title>Our Special Place</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: #ff8c8c;
+            color: white;
+            padding: 3em 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background-image.jpg') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            font-family: 'Great Vibes', cursive;
+            animation: slideInDown 1s ease-out;
+        }
+        header p {
+            font-size: 1.5em;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        section {
+            padding: 3em 2em;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 2em;
+        }
+        .gallery a {
+            display: block;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: fadeIn 2s ease-in;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin-top: 2em;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+        .video-container:hover iframe {
+            transform: scale(1);
+        }
+        .timeline {
+            max-width: 900px;
+            margin: 3em auto;
+            padding: 2em;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2s ease-out;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            height: 100%;
+            border-left: 3px solid #ff8c8c;
+            top: 0;
+            transform: translateX(-50%);
+        }
+        .timeline-event {
+            position: relative;
+            padding: 1.5em;
+            border-radius: 10px;
+            background: #f9f9f9;
+            margin-bottom: 1.5em;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            animation: slideInUp 1s ease-out;
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .timeline-event:nth-child(odd) {
+            margin-left: auto;
+            margin-right: 50%;
+            text-align: right;
+        }
+        .timeline-event:nth-child(even) {
+            margin-left: 50%;
+            margin-right: auto;
+        }
+        .timeline-event::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border-width: 12px;
+            border-style: solid;
+            border-color: transparent transparent transparent #f9f9f9;
+            left: -24px;
+            transform: rotate(90deg);
+        }
+        .timeline-event:nth-child(odd)::after {
+            left: auto;
+            right: -24px;
+            border-color: transparent #f9f9f9 transparent transparent;
+        }
+        .map {
+            width: 100%;
+            height: 400px;
+            margin-top: 2em;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        .audio-player {
+            margin: 2em auto;
+            max-width: 600px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        .audio-player audio {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card {
+            margin: 3em auto;
+            padding: 1.5em;
+            background: #ff8c8c;
+            color: white;
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.2em;
+            }
+            .gallery img {
+                max-width: 100%;
+            }
+            .timeline-event {
+                text-align: center;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .timeline-event::after {
+                left: auto;
+                right: auto;
+                top: auto;
+                bottom: -20px;
+                border-color: transparent transparent #f9f9f9 transparent;
+                border-width: 12px;
+                transform: rotate(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="animate__animated animate__fadeIn">Welcome,Kalpana Jii</h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">This is our special place on the web.</p>
+    </header>
+    <section>
+        <h2>About Us</h2>
+        <p>Our bond is truly unbreakable,we share countless laughs and support each other in every suituation.Even though we're now separated by approx 100 kilometers, our relationship bond is still unbreakable...
+  </p1>  </section>
+    <section class="timeline">
+        
+        <div class="timeline-event">
+            <h3>First Meeting</h3>
+            <p>Our story began with our selection for the SUPER 100 government program, designed to prepare students for JEE/NEET exams. We were among 91 students gathered at Rajiv Gandhi Navodaya, Dehradun. During the first 30-day session, interactions were less between us,as we focused on adapting to the program and our studies.
+
+Things started to change during the second session when we moved into the same hostel. With more time together, conversations began over social media and gradually extended to face-to-face interactions. We found joy in spending time together, playing games, and sharing our experiences.
+
+One evening, while sitting on the hostel stairs, you opened up about your feelings for me. I felt the same way, and from that moment, our connection deepened. We started a new chapter of our lives together, filled with laughter, support, and care for one another,and much more.. From that day onwards, my life has been filled with joy and love because of you Tiwari jii..</p>
+        </div>
+        <div class="timeline-event">
+            <h3>First Date</h3>
+            <p>Our first date was unforgettable actually it was not a formal date but, it was more wonderfull. We travelled approx 400 kms in train towards our home .We spent those hours talking, laughing, and enjoying, creating wonderful memories. We had a great time together that night.</p>
+        </div>
+      
+    </section>
+    <section>
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <a href="image1.jpg" data-lightbox="gallery"><img src="C:\Users\ADMIN\Downloads\WhatsApp Image 2024-08-19 at 9.47.20 AM.jpeg" alt="Memory 1"></a>
+            <a href="image2.jpg" data-lightbox="gallery"><img src="C:\Users\ADMIN\Downloads\IMG_20240818_215237.jpg" alt="Memory 2"></a>
+            <!-- Add more gallery images as needed -->
+        </div>
+    </section>
+    <section class="video-container">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5_B3dCVn8sk?si=Hk-HGTSV6XcAXB7l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+
+    <section>
+        <div class="card">
+            <h2>Thank You for Being You!</h2>
+            <p>Every moment with you is a treasure. I look forward to many more memories together.</p>
+        </div>
+    </section>
+</body>
+</html>
